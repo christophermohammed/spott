@@ -13,10 +13,10 @@ require('../db/mongoose');
 const containerName = process.env.NODE_ENV === 'production' ? 'prod-media' : 'media';
 
 // set media
-router.post('/media', auth, upload.single('media'), decrypt, async (req, res) => {
+router.post('/api/media', auth, upload.single('media'), decrypt, async (req, res) => {
     try {
         await blobService.createContainerIfDoesNotExist(containerName);
-        if(!req.file || !req.file.buffer) throw new Error;
+        if (!req.file || !req.file.buffer) throw new Error;
 
         const newBuffer = await compress(req.file.buffer);
         let media = new Media({
@@ -30,16 +30,16 @@ router.post('/media', auth, upload.single('media'), decrypt, async (req, res) =>
         await blobService.uploadString(containerName, media._id + '.jpg', newBuffer);
         await media.save();
         res.status(201).send();
-    } catch(err) { 
+    } catch (err) {
         console.log(err);
         res.status(400).send(err);
     }
 });
 
 // get media by id 
-router.get('/media/:id/:width', async (req, res) => {
+router.get('/api/media/:id/:width', async (req, res) => {
     try {
-        const {width, id} = req.params;
+        const { width, id } = req.params;
         let parsedWidth = parseInt(width);
 
         let stream = new PassThrough();
@@ -52,18 +52,18 @@ router.get('/media/:id/:width', async (req, res) => {
         let newBuffer = await resize(parsedWidth, mergedBuffer);
         res.set('Content-Type', 'image/jpg');
         res.send(newBuffer);
-    } catch(err) { 
+    } catch (err) {
         console.log(err);
         res.status(400).send(err);
     }
 });
 
 // update media
-router.patch('/media/:id', auth, decrypt, async (req, res) => {
+router.patch('/api/media/:id', auth, decrypt, async (req, res) => {
     const updates = Object.keys(req.body);
     try {
         let media = await Media.findById(req.params.id);
-        if(!media) {
+        if (!media) {
             throw new Error;
         }
 
@@ -75,27 +75,27 @@ router.patch('/media/:id', auth, decrypt, async (req, res) => {
 
         await media.save();
         res.send(media);
-    } catch(err) { 
+    } catch (err) {
         console.log(err);
         res.status(400).send(err);
     }
 });
 
 // delete media
-router.delete('/media/:id', auth, decrypt, async (req, res) => {
+router.delete('/api/media/:id', auth, decrypt, async (req, res) => {
     try {
-        let media = req.user.adminProperties ? 
-            await Media.findById(req.params.id) : 
-            await Media.findOne({_id: req.params.id, owner: req.user._id});
-        
+        let media = req.user.adminProperties ?
+            await Media.findById(req.params.id) :
+            await Media.findOne({ _id: req.params.id, owner: req.user._id });
+
         await blobService.deleteBlob(containerName, media._id + '.jpg');
 
-        if(!media) {
+        if (!media) {
             throw new Error;
         }
         await media.remove();
         res.send();
-    } catch(err) { 
+    } catch (err) {
         console.log(err);
         res.status(404).send(err);
     }

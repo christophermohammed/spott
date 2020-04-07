@@ -7,7 +7,7 @@ const twilioClient = require('twilio')(
 );
 
 // send sms message
-router.post('/messages', decrypt, async (req, res) => {
+router.post('/api/messages', decrypt, async (req, res) => {
   const { phoneNumber, selectedLocation } = req.body;
   try {
     res.header('Content-Type', 'application/json');
@@ -20,8 +20,8 @@ router.post('/messages', decrypt, async (req, res) => {
         Apple Maps:\n
         ${process.env.APPLE_MAPS_LINK + selectedLocation.lat},${selectedLocation.lng}`
     });
-    res.send(); 
-  } catch(err) { 
+    res.send();
+  } catch (err) {
     console.log(err);
     res.status(400).send();
   }
