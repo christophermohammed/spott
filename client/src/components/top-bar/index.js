@@ -82,9 +82,10 @@ function TopBar({ path, history, filter, setFilter }) {
       case ROOT:
         if (selectedLocation.lat && selectedLocation.lng) {
           return (
-            <button className="add" onClick={() => setIsModalOpen(true)}>
-              Send to your phone
-            </button>
+            // <button className="add" onClick={() => setIsModalOpen(true)}>
+            //   Send to your phone
+            // </button>
+            <div style={{ width: 80 }}></div>
           );
         }
         return;
