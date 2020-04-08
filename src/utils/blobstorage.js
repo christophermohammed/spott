@@ -70,7 +70,6 @@ const listBlobs = async (containerName) => {
 };
 
 const downloadBlob = async (containerName, blobName, writeStream) => {
-    const dowloadFilePath = path.resolve('./' + blobName.replace('.txt', '.downloaded.txt'));
     return new Promise((resolve, reject) => {
         blobService.getBlobToStream(containerName, blobName, writeStream, (err, data) => {
             if (err) {
