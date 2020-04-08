@@ -48,7 +48,6 @@ export const setApproval = async (id, token, approval, locationId) => {
             res = await mediaService.updateMedia(id, { approved: true }, token);
             break;
         case DENIED:
-            await locationService.deleteLocation(locationId, token)
             await mediaService.deleteMedia(id, token);
             break;
         default:

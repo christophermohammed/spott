@@ -40,7 +40,7 @@ function Post({ initialMedia, screenWidth }) {
 
     const sendApproval = async (approval) => {
         try {
-            await mediaLogic.setApproval(media._id, token, approval, media.location._id);
+            await mediaLogic.setApproval(media._id, token, approval, media.location);
             dispatch({ type: actionTypes.SET_POSITION, payload: {} })
             setApproved(approval);
         } catch (error) {

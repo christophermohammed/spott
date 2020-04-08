@@ -12,6 +12,7 @@ import { MAIN_DARK, DOWNVOTE_RED } from "../../common/colors";
 import * as messages from '../../common/top-bar-messages';
 import TopBar from '../top-bar';
 import './add-photo.css';
+import { isEmpty } from 'utils/validators';
 
 function AddPhoto({ history, setIsRoot }) {
   const user = useSelector(state => state.user);
@@ -39,18 +40,20 @@ function AddPhoto({ history, setIsRoot }) {
       // check for location errors then set location and service
       var locationId = '';
       if (newPositionChecked) {
-        if (!newLocationId) {
+        if (isEmpty(newLocationId)) {
           checkLocation(position);
           locationId = await locationService.setLocation(position, token);
-          if (locationId) setNewLocationId(locationId);
         }
       } else {
-        if (!selectedLocation._id) {
-          throw new Error(messages.errors.LOCATION_MISSING);
-        }
         locationId = selectedLocation._id;
       }
-      await mediaService.setMedia(selectedFile, newLocationId, token);
+
+      if (!isEmpty(locationId)) {
+        setNewLocationId(locationId);
+        await mediaService.setMedia(selectedFile, locationId, token);
+      } else {
+        throw new Error(messages.errors.LOCATION_MISSING);
+      }
       //success
       dispatch({
         type: actionTypes.SET_BANNER,
