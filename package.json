@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev-server": "nodemon --inspect app.js",
-    "dev-client": "concurrently \"nodemon --inspect app.js\" \"cd client && yarn start\"",
+    "dev": "concurrently \"nodemon --inspect app.js\" \"cd client && yarn start\"",
     "build": "cd client && yarn && yarn run build",
     "start": "node app.js"
   },
