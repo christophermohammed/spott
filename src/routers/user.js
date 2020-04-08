@@ -1,9 +1,7 @@
 const express = require('express');
 const router = new express.Router();
-const sharp = require('sharp');
 const User = require('../models/user');
 const auth = require('../middleware/auth');
-const upload = require('../utils/multer');
 const decrypt = require('../middleware/decrypt');
 require('../db/mongoose');
 
