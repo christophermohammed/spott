@@ -30,7 +30,7 @@ res.sendFile(path.join(__dirname + '/client/build/index.html'));
 
 If you're working on the client, most likely you'll need the server up and running as well. The command
 
-`yarn run dev-client`
+`yarn run dev`
 
 Will use [concurrently](https://www.npmjs.com/package/concurrently) to run both the server (on port `5000`) and the client (on port `3000`)<br/> You can then make changes to the client app and see the changes on `http://localhost:3000`
 
