@@ -1,0 +1,268 @@
+.header {
+    display: flex;
+    height: 50px;
+    flex-direction: row;
+    padding: 5px 15px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 2px grey;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.header div {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.left {
+    flex: 1;
+    justify-content: flex-start !important;
+}
+
+.logo-title-container{    
+    justify-content: flex-start !important;
+}
+
+.title-container {
+    align-items: baseline !important;
+    justify-content: flex-start !important;
+    margin: 0px 0px 5px 5px;
+}
+
+.title {
+    margin: 0;
+}
+
+.admin {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.search-bar-container {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.search-bar {
+    padding-left: 5px;
+    width: 180px;
+    font-size: 12px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+
+.right {
+    flex: 1;
+    justify-content: flex-end !important;
+}
+
+.right div * {
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.right input {
+    padding-left: 5px;
+    margin-left: 5px;
+    width: 180px;
+    font-size: 12px;
+}
+
+.right button {
+    width: 70px;
+    background-color: white;
+    margin-left: 5px; 
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.75)
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vh;
+    background-color: white;
+    box-shadow: 4px 4px 2px grey;
+}
+
+.su-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.auth-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-info input, .su-button-container *, .input-container input {
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.auth-info input, .input-container input {
+    margin: 0px 20px 20px 20px;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.auth-info input { 
+    width: 180px;
+}
+
+.input-container {
+    width: 25vw;
+}
+
+.input-container input {
+    width: calc(25vw - 47px);
+}
+
+.su-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.su-button-container button {
+    width: 70px;
+    background-color: white;
+    margin: 0px 20px 20px 20px; 
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.auth-info h5, .country-info h5 {
+    margin: 0px 20px 5px 20px;
+}
+
+h5 {
+    margin-block-start: 0px;
+    margin-block-end: 0px; 
+}
+
+.error-container {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    align-items: center;
+    direction: ltr;
+}
+
+.message-container {
+    display: flex;
+    flex: 1;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.search-results-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    top: 62px;
+    z-index: 1000;
+}
+
+.search-results-container ul {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px grey;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: solid 1px #DBDBDB;
+}
+
+.search-result:last-child {
+    border-radius: 10px;
+}
+
+.search-result * {
+    margin: 0px;
+}
+
+.search-result p {
+    font-size: 10px;
+    text-align: start;
+}
+
+.settings-icon-container {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.settings-panel {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    direction: ltr;
+    top: 62px;
+    right: 0px;
+    width: 25vw;
+    height: calc(100vh - 62px);
+    background-color: white;
+    z-index: 1000;
+}
+
+.settings-panel h5 {
+    text-align: start;
+    margin: 0px 20px 5px 20px;
+}
+
+.settings-panel h1 {
+    margin-left: 20px;
+}
+
+.select {
+    margin: 0px 20px 20px 20px;
+    width: calc(25vw - 40px);
+}
+
+.settings-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+}
+

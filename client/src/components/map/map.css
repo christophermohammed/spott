@@ -1,0 +1,6 @@
+.map-container {
+    position: fixed;
+    right: 0;
+    width: 50vw;
+    height: calc(100vh - 60px);
+}

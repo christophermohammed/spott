@@ -1,0 +1,55 @@
+.add-location-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    direction: ltr;
+    width: 50%;
+}
+
+.add-location-container input, .add-location-container textarea {
+    min-width: 280px;
+    padding-left: 5px;
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0px 0px 20px 0px;
+}
+
+.add-location-container h5 {
+    margin: 0px 0px 5px 0px;
+}
+
+.add-location-container a {
+    display: flex;
+    justify-content: center;
+}
+
+.name-input {
+    height: 30px;
+}
+
+.description-textarea {
+    height: 120px;
+    line-height: 30px;
+    font: 400 13.3333px Arial;
+    padding-top: 5px;
+}
+
+.add {
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.add-location-container span {
+    margin-block-start: 0px;
+    margin-block-end: 10px;
+}
+
+.h5-container {
+    min-width: 280px;
+}

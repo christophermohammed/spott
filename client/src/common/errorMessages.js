@@ -1,1 +1,0 @@
-export const GET_DATA = 'Could not get data';

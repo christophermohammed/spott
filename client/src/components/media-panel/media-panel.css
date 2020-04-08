@@ -1,0 +1,43 @@
+.media-panel {
+    display: flex;
+    flex-direction: column;
+    width: calc(50vw - 16px);
+    flex: 1;
+}
+
+.description-container {
+    direction: ltr;
+    text-align: center;
+}
+
+.description {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 20px 20px 0px 20px;
+}
+
+.list-container {
+    margin-top: 20px;
+    flex: 1;
+}
+
+ul {
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+}
+
+.no-media-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.no-media-message {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0px 20px;
+}
