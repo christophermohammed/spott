@@ -39,6 +39,10 @@ stages:
         yarn
         yarn run build
       displayName: 'Install node modules and create production build of React app'
+    
+    - script: |
+        rm -rf ./client/node_modules
+      displayName: 'Clean up React app's node modules'
       
     - task: ArchiveFiles@2
       displayName: 'Archive files'
